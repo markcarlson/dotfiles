@@ -1,0 +1,9 @@
+[base_osx]
+localhost
+
+[emacs]
+localhost
+
+[osx:children]
+base_osx
+emacs

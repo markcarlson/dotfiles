@@ -1,0 +1,65 @@
+---
+- name: Install base OS X packages
+  homebrew:
+    name: "{{item}}"
+    update_homebrew: yes
+    upgrade_all: yes
+    state: latest
+  with_items:
+    - curl
+    - sqlite3
+    - postgres
+    - phantomjs
+    - cask
+    - wget
+    - node
+    - rbenv
+    - memcached
+
+- name: Install base OS X apps
+  homebrew_cask:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - skype
+    - transmit
+    - evernote
+    - google-chrome
+    - firefox
+    - dropbox
+    - skitch
+    - omnifocus
+    - hyperdock
+    - rubymine
+    - sketch
+    - iterm2
+    - docker
+    - sublime-text
+    - sequel-pro
+    - postgres
+    - java
+    - flux
+    - pgadmin3
+    - vagrant
+    - ngrok
+    - textexpander
+    - slack
+    - eclipse-ide
+    - atom
+    - 1password
+    - wkhtmltopdf
+
+- name: Link homebrew applications
+  shell: brew linkapps
+
+- name: Install python packages
+  pip: requirements=~/Workspace/dotfiles/ansible/roles/base_osx/files/requirements.txt
+
+- name: Install npm packages
+  npm: name="{{item}}" global=yes
+  with_items:
+    - yo
+    - bower
+    - gulp
+    - generator-angular
+    - generator-karma

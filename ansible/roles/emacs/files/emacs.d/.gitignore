@@ -1,0 +1,9 @@
+auto-save-list/
+elpa/
+eshell/
+emacs-backup/
+projectile-bookmarks*
+.mc-lists.el
+.cask
+*.dat
+ido.last

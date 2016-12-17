@@ -1,0 +1,12 @@
+---
+- name: Install personal OS X apps
+  homebrew_cask:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - transmission
+    - battle-net
+    - vlc
+    - beamer
+    - sabnzbd
+    - cloak

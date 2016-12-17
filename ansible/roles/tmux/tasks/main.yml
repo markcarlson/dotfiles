@@ -1,0 +1,22 @@
+---
+- name: Install tmux
+  homebrew:
+    name: "{{item}}"
+    update_homebrew: yes
+    upgrade_all: yes
+    state: latest
+  with_items:
+    - tmux
+
+- name: Copy tmux configurations
+  file: src={{ playbook_dir }}/roles/tmux/files/tmux.conf dest=~/.tmux.conf state="link"
+
+- name: Initialize AppleScripts directory
+  file: path="~/Workspace/AppleScripts" state="directory"
+
+- name: Copy iTunes current track script
+  file:
+    src={{ playbook_dir }}/roles/tmux/files/itunes-current-track-tmux.sh
+    dest=~/Workspace/AppleScripts/itunes-current-track-tmux.sh
+    state="link"
+    mode=0755

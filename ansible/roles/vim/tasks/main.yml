@@ -1,0 +1,17 @@
+---
+- name: Install vim
+  homebrew:
+    name: "{{item}}"
+    update_homebrew: yes
+    upgrade_all: yes
+    state: latest
+  with_items:
+    - vim
+    - macvim
+
+- stat: path=~/.vim.old/
+  register: oldvim
+
+- name: Install Janus
+  shell: curl -L https://bit.ly/janus-bootstrap | bash
+  when: oldvim.stat.isdir is not defined

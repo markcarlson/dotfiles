@@ -1,0 +1,28 @@
+---
+- name: Install railwaycat tap
+  homebrew_tap:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - railwaycat/emacsmacport
+
+- name: Install Emacs
+  homebrew:
+    name: "{{item}}"
+    state: latest
+    update_homebrew: yes
+    upgrade_all: yes
+  with_items:
+    - emacs-mac
+    - emacs
+
+- name: Copy emacs.d
+  file:
+    src={{ playbook_dir}}/roles/emacs/files/emacs.d
+    dest=~/.emacs.d
+    state="link"
+
+- name: Cask install dependencies
+  shell: cask install
+  args:
+    chdir: ~/.emacs.d

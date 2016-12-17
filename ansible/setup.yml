@@ -1,0 +1,6 @@
+- hosts: all
+  roles:
+    - base_osx
+    - emacs
+    - vim
+    - tmux
