@@ -14,7 +14,10 @@
     - wget
     - node
     - rbenv
+    - redis
+    - elasticsearch@1.7
     - memcached
+    - imagemagick
 
 - name: Install base OS X apps
   homebrew_cask:
