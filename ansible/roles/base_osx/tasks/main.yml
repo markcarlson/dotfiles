@@ -17,7 +17,9 @@
     - redis
     - elasticsearch@1.7
     - memcached
+    - mysql
     - imagemagick
+    - yarn
 
 - name: Install base OS X apps
   homebrew_cask:
