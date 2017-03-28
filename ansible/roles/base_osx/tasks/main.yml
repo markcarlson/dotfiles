@@ -20,6 +20,7 @@
     - mysql
     - imagemagick
     - yarn
+    - ghostscript
 
 - name: Install base OS X apps
   homebrew_cask:
