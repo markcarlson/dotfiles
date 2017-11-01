@@ -15,6 +15,7 @@
     - node
     - rbenv
     - redis
+    - git-flow
     - elasticsearch@1.7
     - memcached
     - mysql
